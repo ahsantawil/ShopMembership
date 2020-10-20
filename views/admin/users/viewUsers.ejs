@@ -1,0 +1,49 @@
+<%- include('../../partials/Header.ejs') %>
+<%- include('../../partials/Navbar.ejs') %>
+<%- include('../../partials/Sidebar.ejs') %>
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <%- include('../../partials/Message.ejs') %>
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Users</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Data Users</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <%- include('dataUsers.ejs') %>
+    <!-- /.content -->
+</div>
+<%- include('editUsers.ejs') %>
+<%- include('../../partials/Footer.ejs') %>
+<%- include('../../partials/adminltejs.ejs') %>
+
+<script>
+    $('#dataTable').on('click', '.button-update', function(){
+        let id = $(this).data('id');
+        let fullname = $(this).data('fullname');
+        let username = $(this).data('username');
+        let email = $(this).data('email');
+        let password = $(this).data('password');
+        let updateAt = $(this).data('updateAt');
+        $('#edit-users').modal('show');
+        $('.id').val(id);
+        $('.fullname').val(fullname);
+        $('.username').val(username);
+        $('.email').val(email);
+        $('.password').val(password);
+        $('.updateAt').val(updateAt);
+    })
+</script>
